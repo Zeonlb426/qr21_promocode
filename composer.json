@@ -1,0 +1,108 @@
+{
+    "name": "dvlp/larabase",
+    "type": "project",
+    "description": "The Laravel Framework.",
+    "version": "v0.8.1",
+    "keywords": [
+        "framework",
+        "laravel"
+    ],
+    "license": "MIT",
+    "require": {
+        "php": "^7.4|^8.0",
+        "dvlp/extended-pagination": "^0.5.1",
+        "dvlp/laravel-admin-menu": "^1.1",
+        "dvlp/laravel-schedule-monitor": "^0.1.1",
+        "dvlp/robots-txt": "^0.1.2",
+        "dvlp/vuexy": "^0.0.4",
+        "encore/laravel-admin": "^1.8",
+        "fideloper/proxy": "^4.4",
+        "fruitcake/laravel-cors": "^2.0",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "laravel-admin-ext/grid-sortable": "^1.1",
+        "laravel/framework": "^8.77",
+        "laravel/sanctum": "^2.14",
+        "laravel/tinker": "^2.5",
+        "league/flysystem-aws-s3-v3": "^1.0",
+        "maatwebsite/excel": "^3.1",
+        "milon/barcode": "^8.0",
+        "mindbox/sdk": "^1.0",
+        "nicklasos/laravel-admin-media-library": "^0.1",
+        "propaganistas/laravel-phone": "^4.3",
+        "spatie/data-transfer-object": "^2.8",
+        "spatie/enum": "^3.7",
+        "spatie/laravel-medialibrary": "^8.0.0",
+        "spatie/laravel-sluggable": "^2.6"
+    },
+    "require-dev": {
+        "andrey-helldar/env-sync-laravel": "^1.0",
+        "barryvdh/laravel-ide-helper": "^2.9",
+        "darkaonline/l5-swagger": "^8.0",
+        "facade/ignition": "^2.5",
+        "fakerphp/faker": "^1.9.1",
+        "laravel/sail": "^1.0.1",
+        "laravel/telescope": "^4.4",
+        "mockery/mockery": "^1.4.2",
+        "nunomaduro/collision": "^5.0",
+        "nunomaduro/larastan": "^1.0",
+        "phpunit/phpunit": "^9.3.3",
+        "squizlabs/php_codesniffer": "^3.5"
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "gitlab-domains": [
+            "gitlab.devup.cc"
+        ]
+    },
+    "extra": {
+        "laravel": {
+            "dont-discover": [
+                "barryvdh/laravel-ide-helper"
+            ]
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/",
+            "Database\\Factories\\": "database/factories/",
+            "Database\\Seeders\\": "database/seeders/",
+            "Database\\Migrations\\": "database/migrations/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "scripts": {
+        "post-update-cmd": [
+        ],
+        "post-autoload-dump": [
+            "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
+            "@php artisan package:discover --ansi"
+        ],
+        "post-root-package-install": [
+            "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
+        ],
+        "post-create-project-cmd": [
+            "@php artisan key:generate --ansi"
+        ]
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://gitlab.devup.cc/api/v4/group/202/-/packages/composer/packages.json"
+        },
+        {
+            "type": "path",
+            "url": "packages/laravel-admin-media-library",
+            "options": {
+                "symlink": true
+            }
+        }
+    ]
+}
